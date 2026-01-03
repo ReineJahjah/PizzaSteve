@@ -73,6 +73,33 @@ public class ItemDetailsActivity extends AppCompatActivity {
         tvItemPrice.setText(String.format("$%.2f", item.getPrice()));
         tvItemDescription.setText(item.getDescription());
         tvQuantity.setText(String.valueOf(quantity));
+
+        // Load image with Glide
+        // Check if it's a drawable resource name or URL
+        if (imageUrl != null && !imageUrl.startsWith("http")) {
+            // It's a drawable resource name
+            int resourceId = getResources().getIdentifier(
+                    imageUrl, "drawable", getPackageName());
+
+            if (resourceId != 0) {
+                com.bumptech.glide.Glide.with(this)
+                        .load(resourceId)
+                        .placeholder(R.drawable.ic_launcher_background)
+                        .error(R.drawable.ic_launcher_background)
+                        .centerCrop()
+                        .into(ivItemImage);
+            } else {
+                ivItemImage.setImageResource(R.drawable.ic_launcher_background);
+            }
+        } else {
+            // It's a URL
+            com.bumptech.glide.Glide.with(this)
+                    .load(imageUrl)
+                    .placeholder(R.drawable.ic_launcher_background)
+                    .error(R.drawable.ic_launcher_background)
+                    .centerCrop()
+                    .into(ivItemImage);
+        }
     }
 
     private void setupButtons() {

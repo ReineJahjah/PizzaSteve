@@ -15,9 +15,11 @@
         android:padding="12dp">
 
         <!-- Placeholder for image -->
-        <View
+        <ImageView
+            android:id="@+id/ivItemImage"
             android:layout_width="match_parent"
             android:layout_height="120dp"
+            android:scaleType="centerCrop"
             android:background="#E0E0E0"
             android:layout_marginBottom="8dp"/>
 

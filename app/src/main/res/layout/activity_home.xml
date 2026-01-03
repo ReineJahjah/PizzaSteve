@@ -95,7 +95,7 @@
                 android:backgroundTint="#B71C1C"/>
 
             <!-- Features -->
-            <LinearLayout
+            <!-- <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -124,7 +124,7 @@
                     android:textSize="16sp"
                     android:textColor="#212121"/>
 
-            </LinearLayout>
+            </LinearLayout> -->
 
         </LinearLayout>
 
