@@ -4,7 +4,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.example.pizzasteve.models.Order;
 import com.example.pizzasteve.models.CartItem;
-
 import java.util.ArrayList;
 import java.util.List;
 

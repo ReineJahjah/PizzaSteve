@@ -30,12 +30,37 @@
             android:name=".activities.SignUpActivity"
             android:exported="false" />
 
-        <!-- Main Activity -->
+        <!-- Home Activity -->
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".activities.HomeActivity"
             android:exported="false" />
 
-        <!-- Menu Activity -->
+        <!-- Category Activity (Pizza/Drinks/Starters) -->
+        <activity
+            android:name=".activities.CategoryActivity"
+            android:exported="false" />
+
+        <!-- Favorites Activity -->
+        <activity
+            android:name=".activities.FavoritesActivity"
+            android:exported="false" />
+
+        <!-- Cart Activity -->
+        <activity
+            android:name=".activities.CartActivity"
+            android:exported="false" />
+
+        <!-- Stores Activity -->
+        <activity
+            android:name=".activities.StoresActivity"
+            android:exported="false" />
+
+        <!-- Item Details Activity -->
+        <activity
+            android:name=".activities.ItemDetailsActivity"
+            android:exported="false" />
+
+        <!-- Menu Activity (old horizontal scroll - optional) -->
         <activity
             android:name=".activities.MenuActivity"
             android:exported="false" />
