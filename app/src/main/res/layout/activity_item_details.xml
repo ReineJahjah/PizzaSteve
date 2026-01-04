@@ -33,7 +33,8 @@
                 android:layout_margin="16dp"
                 android:src="@android:drawable/star_big_off"
                 android:padding="8dp"
-                app:tint="#FF6B6B" />
+                app:tint="#FF6B6B"
+                android:background="@android:color/transparent"/>
 
         </RelativeLayout>
 
