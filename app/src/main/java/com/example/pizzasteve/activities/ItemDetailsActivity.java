@@ -57,50 +57,41 @@ public class ItemDetailsActivity extends AppCompatActivity {
     }
 
     private void getItemData() {
-        // Get data from intent
+
         String itemId = getIntent().getStringExtra("itemId");
         String name = getIntent().getStringExtra("name");
         String description = getIntent().getStringExtra("description");
         double price = getIntent().getDoubleExtra("price", 0.0);
         String category = getIntent().getStringExtra("category");
-        String imageUrl = getIntent().getStringExtra("imageUrl");
 
-        // Create MenuItem object
-        item = new MenuItem(itemId, name, description, price, category, imageUrl);
+        // ✅ FIX: get imageName (NOT imageUrl)
+        String imageName = getIntent().getStringExtra("imageName");
 
-        // Display data
+        item = new MenuItem(itemId, name, description, price, category, imageName);
+
         tvItemName.setText(item.getName());
         tvItemPrice.setText(String.format("$%.2f", item.getPrice()));
         tvItemDescription.setText(item.getDescription());
         tvQuantity.setText(String.valueOf(quantity));
 
-        // Load image with Glide
-        // Check if it's a drawable resource name or URL
-        if (imageUrl != null && !imageUrl.startsWith("http")) {
-            // It's a drawable resource name
-            int resourceId = getResources().getIdentifier(
-                    imageUrl, "drawable", getPackageName());
+        // ✅ LOAD IMAGE FROM DRAWABLE NAME
+        if (imageName != null) {
+            int imageResId = getResources().getIdentifier(
+                    imageName,
+                    "drawable",
+                    getPackageName()
+            );
 
-            if (resourceId != 0) {
-                com.bumptech.glide.Glide.with(this)
-                        .load(resourceId)
-                        .placeholder(R.drawable.ic_launcher_background)
-                        .error(R.drawable.ic_launcher_background)
-                        .centerCrop()
-                        .into(ivItemImage);
+            if (imageResId != 0) {
+                ivItemImage.setImageResource(imageResId);
             } else {
-                ivItemImage.setImageResource(R.drawable.ic_launcher_background);
+                ivItemImage.setImageResource(R.drawable.load);
             }
         } else {
-            // It's a URL
-            com.bumptech.glide.Glide.with(this)
-                    .load(imageUrl)
-                    .placeholder(R.drawable.ic_launcher_background)
-                    .error(R.drawable.ic_launcher_background)
-                    .centerCrop()
-                    .into(ivItemImage);
+            ivItemImage.setImageResource(R.drawable.load);
         }
     }
+
 
     private void setupButtons() {
         // Increase quantity
