@@ -34,7 +34,7 @@
             android:padding="14dp"
             android:drawableLeft="@android:drawable/ic_menu_search"
             android:drawablePadding="8dp"
-            android:background="@android:color/transparent"
+            android:background="#FFFFFF"
             android:textColor="#212121"
             android:inputType="text" />
 
