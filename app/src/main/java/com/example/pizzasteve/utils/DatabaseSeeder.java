@@ -64,8 +64,6 @@ public class DatabaseSeeder {
         addMenuItem("drink6", "Iced Tea", "Cold lemon iced tea 330ml",
                 2.99, "drink", "drink_iced_tea", callback);
 
-        addMenuItem("drink7", "Milkshake", "Creamy vanilla milkshake 400ml",
-                4.49, "drink", "drink_milkshake", callback);
 
         // Starters
         addMenuItem("starter1", "Garlic Bread", "Toasted Italian bread with garlic butter",
