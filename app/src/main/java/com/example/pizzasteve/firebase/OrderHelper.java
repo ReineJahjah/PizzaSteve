@@ -67,20 +67,20 @@ public class OrderHelper {
         });
     }
 
-    // Get user's order history (optional feature)
-    public void getUserOrders(OrderListCallback callback) {
-        db.collection("orders")
-                .whereEqualTo("userId", userId)
-                .orderBy("orderDate", com.google.firebase.firestore.Query.Direction.DESCENDING)
-                .get()
-                .addOnSuccessListener(queryDocumentSnapshots -> {
-                    List<Order> orders = new ArrayList<>();
-                    queryDocumentSnapshots.forEach(doc ->
-                            orders.add(doc.toObject(Order.class)));
-                    callback.onSuccess(orders);
-                })
-                .addOnFailureListener(e -> callback.onFailure(e.getMessage()));
-    }
+//    // Get user's order history (optional feature)
+//    public void getUserOrders(OrderListCallback callback) {
+//        db.collection("orders")
+//                .whereEqualTo("userId", userId)
+//                .orderBy("orderDate", com.google.firebase.firestore.Query.Direction.DESCENDING)
+//                .get()
+//                .addOnSuccessListener(queryDocumentSnapshots -> {
+//                    List<Order> orders = new ArrayList<>();
+//                    queryDocumentSnapshots.forEach(doc ->
+//                            orders.add(doc.toObject(Order.class)));
+//                    callback.onSuccess(orders);
+//                })
+//                .addOnFailureListener(e -> callback.onFailure(e.getMessage()));
+//    }
 
     // Callback interfaces
     public interface OrderCallback {

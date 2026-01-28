@@ -71,38 +71,24 @@ public abstract class BaseActivity extends AppCompatActivity {
                 });
             }
 
-            // Category buttons with Toast for visibility
+            // Category buttons
             if (btnPizza != null) {
                 btnPizza.setOnClickListener(v -> {
-                    //android.widget.Toast.makeText(this, "Pizza Button Clicked!", android.widget.Toast.LENGTH_SHORT).show();
-                    //android.util.Log.d("BaseActivity", "Pizza button clicked!");
                     navigateToPizza();
                 });
-            } else {
-                android.util.Log.e("BaseActivity", "btnPizza is NULL!");
             }
 
             if (btnDrinks != null) {
                 btnDrinks.setOnClickListener(v -> {
-                    //android.widget.Toast.makeText(this, "Drinks Button Clicked!", android.widget.Toast.LENGTH_SHORT).show();
-                    //android.util.Log.d("BaseActivity", "Drinks button clicked!");
                     navigateToDrinks();
                 });
-            } else {
-                android.util.Log.e("BaseActivity", "btnDrinks is NULL!");
             }
 
             if (btnStarters != null) {
                 btnStarters.setOnClickListener(v -> {
-                    //android.widget.Toast.makeText(this, "Starters Button Clicked!", android.widget.Toast.LENGTH_SHORT).show();
-                    //android.util.Log.d("BaseActivity", "Starters button clicked!");
                     navigateToStarters();
                 });
-            } else {
-                android.util.Log.e("BaseActivity", "btnStarters is NULL!");
             }
-        } else {
-            android.util.Log.e("BaseActivity", "customActionBar is NULL!");
         }
     }
 
@@ -145,20 +131,13 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     private void navigateToPizza() {
-        android.util.Log.d("BaseActivity", "navigateToPizza called");
-        android.util.Log.d("BaseActivity", "Current activity: " + this.getClass().getSimpleName());
-
         Intent intent = new Intent(this, CategoryActivity.class);
         intent.putExtra("category", "pizza");
         intent.putExtra("title", "Pizzas");
         startActivity(intent);
-
-        android.util.Log.d("BaseActivity", "Intent sent to CategoryActivity");
     }
 
     private void navigateToDrinks() {
-        android.util.Log.d("BaseActivity", "navigateToDrinks called");
-
         Intent intent = new Intent(this, CategoryActivity.class);
         intent.putExtra("category", "drink");
         intent.putExtra("title", "Drinks");
@@ -166,8 +145,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     private void navigateToStarters() {
-        android.util.Log.d("BaseActivity", "navigateToStarters called");
-
         Intent intent = new Intent(this, CategoryActivity.class);
         intent.putExtra("category", "starter");
         intent.putExtra("title", "Starters");

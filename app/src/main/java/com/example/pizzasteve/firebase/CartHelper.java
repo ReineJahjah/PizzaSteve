@@ -40,7 +40,7 @@ public class CartHelper {
                 });
     }
 
-    // Update cart item quantity
+    // Update cart item quantity   ///bl adapter
     public void updateCartItem(CartItem item, OperationCallback callback) {
         db.collection("carts").document(userId)
                 .collection("items").document(item.getItemId())
@@ -49,7 +49,7 @@ public class CartHelper {
                 .addOnFailureListener(e -> callback.onFailure(e.getMessage()));
     }
 
-    // Remove item from cart
+    // Remove item from cart    ///bl adapter
     public void removeFromCart(String itemId, OperationCallback callback) {
         db.collection("carts").document(userId)
                 .collection("items").document(itemId)
@@ -58,7 +58,7 @@ public class CartHelper {
                 .addOnFailureListener(e -> callback.onFailure(e.getMessage()));
     }
 
-    // Get all cart items
+    // Get all cart items //////1  & OrderHelper
     public void getCartItems(CartItemsCallback callback) {
         db.collection("carts").document(userId)
                 .collection("items")
@@ -74,7 +74,7 @@ public class CartHelper {
                 .addOnFailureListener(e -> callback.onFailure(e.getMessage()));
     }
 
-    // Clear cart
+    // Clear cart   ////bl OrderHelper
     public void clearCart(OperationCallback callback) {
         db.collection("carts").document(userId)
                 .collection("items")
@@ -88,7 +88,7 @@ public class CartHelper {
                 .addOnFailureListener(e -> callback.onFailure(e.getMessage()));
     }
 
-    // Calculate total price
+    // Calculate total price  //////1
     public void calculateTotal(TotalCallback callback) {
         getCartItems(new CartItemsCallback() {
             @Override
