@@ -13,7 +13,7 @@ import com.example.pizzasteve.utils.DatabaseSeeder;
 public class HomeActivity extends BaseActivity {
     private ImageView ivWelcome;
     private TextView tvWelcome, tvTagline;
-    private Button btnExploreMenu, btnSeedDatabase, btnLogout;
+    private Button btnExploreMenu, btnLogout;
     private DatabaseSeeder seeder;
     private AuthHelper authHelper;
 
@@ -27,7 +27,6 @@ public class HomeActivity extends BaseActivity {
         tvWelcome = findViewById(R.id.tvWelcome);
         tvTagline = findViewById(R.id.tvTagline);
         btnExploreMenu = findViewById(R.id.btnExploreMenu);
-        btnSeedDatabase = findViewById(R.id.btnSeedDatabase);
         btnLogout = findViewById(R.id.btnLogout);
 
         // Initialize helpers
@@ -47,37 +46,8 @@ public class HomeActivity extends BaseActivity {
             tvTagline.setText("Choose a category from the buttons above! 🍕🥤🍟");
         });
 
-        // Seed database button
-        btnSeedDatabase.setOnClickListener(v -> seedDatabase());
-
         // Logout button
         btnLogout.setOnClickListener(v -> logout());
-    }
-
-    private void seedDatabase() {
-        btnSeedDatabase.setEnabled(false);
-        btnSeedDatabase.setText("Seeding...");
-        tvTagline.setText("Adding menu items to database...");
-
-        seeder.seedMenuItems(new DatabaseSeeder.SeedCallback() {
-            @Override
-            public void onComplete(boolean success, String message) {
-                btnSeedDatabase.setEnabled(true);
-                btnSeedDatabase.setText("🌱 Seed Database");
-
-                if (success) {
-                    tvTagline.setText("✅ " + message + " Ready to explore!");
-                    Toast.makeText(HomeActivity.this,
-                            "Database seeded successfully!",
-                            Toast.LENGTH_LONG).show();
-                } else {
-                    tvTagline.setText("❌ " + message);
-                    Toast.makeText(HomeActivity.this,
-                            "Seeding failed: " + message,
-                            Toast.LENGTH_LONG).show();
-                }
-            }
-        });
     }
 
     private void logout() {
