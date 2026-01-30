@@ -38,10 +38,8 @@ public class FavoritesActivity extends BaseActivity {
         setupActionBar();
         setSelectedNavItem(R.id.nav_favorites);
 
-        // Initialize helper
         favoritesHelper = new FavoritesHelper();
 
-        // Load favorites
         loadFavorites();
     }
 

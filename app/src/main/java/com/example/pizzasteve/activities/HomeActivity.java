@@ -33,13 +33,10 @@ public class HomeActivity extends BaseActivity {
         seeder = new DatabaseSeeder();
         authHelper = new AuthHelper();
 
-        // Setup navigation FIRST - this sets up the action bar buttons
+        //this sets up the action bar buttons
         setupBottomNavigation();
         setupActionBar();
         setSelectedNavItem(R.id.nav_home);
-
-        // DON'T override the action bar buttons in HomeActivity
-        // They are already setup in BaseActivity.setupActionBar()
 
         // Explore menu button
         btnExploreMenu.setOnClickListener(v -> {

@@ -49,10 +49,8 @@ public class ItemDetailsActivity extends AppCompatActivity {
         // Get item data from intent
         getItemData();
 
-        // Setup buttons
         setupButtons();
 
-        // Check if item is favorite
         checkIfFavorite();
     }
 
@@ -64,7 +62,7 @@ public class ItemDetailsActivity extends AppCompatActivity {
         double price = getIntent().getDoubleExtra("price", 0.0);
         String category = getIntent().getStringExtra("category");
 
-        // ✅ FIX: get imageName (NOT imageUrl)
+        // get imageName
         String imageName = getIntent().getStringExtra("imageName");
 
         item = new MenuItem(itemId, name, description, price, category, imageName);
@@ -74,7 +72,7 @@ public class ItemDetailsActivity extends AppCompatActivity {
         tvItemDescription.setText(item.getDescription());
         tvQuantity.setText(String.valueOf(quantity));
 
-        // ✅ LOAD IMAGE FROM DRAWABLE NAME
+        //LOAD IMAGE FROM DRAWABLE NAME
         if (imageName != null) {
             int imageResId = getResources().getIdentifier(
                     imageName,

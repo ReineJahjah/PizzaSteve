@@ -45,7 +45,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
         holder.tvDescription.setText(item.getDescription());
         holder.tvPrice.setText("$" + String.format("%.2f", item.getPrice()));
 
-        // ✅ LOAD IMAGE FROM DRAWABLE NAME
+        // LOAD IMAGE FROM DRAWABLE NAME
         String imageName = item.getImageUrl(); // example: "pepperoni_pizza"
         Log.d("IMAGE_NAME", imageName);
 

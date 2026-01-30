@@ -45,12 +45,8 @@ public class CategoryActivity extends BaseActivity {
             // Setup navigation
             setupBottomNavigation();
             setupActionBar();
-            //setSelectedNavItem(R.id.nav_home);
-
-            // Initialize helper
             menuHelper = new MenuHelper();
 
-            // Load items
             loadItems();
 
         } catch (Exception e) {
